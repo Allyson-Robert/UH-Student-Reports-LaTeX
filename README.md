@@ -1,5 +1,6 @@
 # UHasselt-Course-LaTeX-Templates
-LaTeX Templates for Hasselt University coursework (*uhcourse*) and reports (*uhreport*)
+LaTeX Templates for Hasselt University reports (*uhreport*) [^1].
+
 Provides two LaTeX documentclasses defining page layout, environments and two commands.
 The document assumes dutch as the used language
 
@@ -13,3 +14,5 @@ Additional commands are provides:
 * \course: Needed to display the course on the title page
 * \degree: Needed to show which to which degree the course belong
 
+
+[^1]: WIP: Selection of school/faculty and colour. 
