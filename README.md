@@ -12,3 +12,4 @@ Additional commands are provides:
 * \npar: Starts a new paragraph, is shorthand for \par\medskip
 * \course: Needed to display the course on the title page
 * \degree: Needed to show which to which degree the course belong
+
