@@ -14,5 +14,8 @@ Additional commands are provides:
 * \course: Needed to display the course on the title page
 * \degree: Needed to show which to which degree the course belong
 
+### UHCourse
+For personal coursework/notes a different template is provided at https://github.com/Allyson-Robert/UHasselt-Coursenotes-LaTeX-Template. 
+This contains different environments such as exercises or theorom/proof environments especially useful for maths courses.
 
 [^1]: WIP: Selection of school/faculty and colour. 
