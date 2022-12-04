@@ -1,4 +1,4 @@
-# UHasselt-Reports-LaTeX-Templates
+# UHasselt Student Reports LaTeX Template
 LaTeX Template for Hasselt University student reports (*uhreport*).
 The proper faculty/school can be selected as an option [^1].
 Note that Physics students should go to the appropriate [paper](https://github.com/Allyson-Robert/UHasselt_Physics_Paper_Template) or [report](https://github.com/Allyson-Robert/UHasselt_Physics_Report_Template) templates
