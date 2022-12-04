@@ -125,7 +125,7 @@
         \begin{minipage}[b]{6cm}
             % Logo of the faculty in question
             % \includegraphics[width=6cm]{UHasselt_FAC_Logo}
-            \includegraphics[width=6cm]{Logo/SES-blok.eps}
+            \includegraphics[width=6cm]{Logo/UHasselt_Logo_Tall.png}
         \end{minipage}
         
         \vfill
@@ -156,10 +156,10 @@
                 \noindent\rule{\textwidth}{0.4pt}
         \end{minipage}
         \vfill
-        \hfill
-        \begin{minipage}[t]{3.5cm}
-            \includegraphics[width = 3.5cm]{Logo/UHasselt_Logo_Tall.png}
-        \end{minipage}%
+        % \hfill
+        % \begin{minipage}[t]{3.5cm}
+        %     \includegraphics[width = 3.5cm]{Logo/UHasselt_Logo_Tall.png}
+        % \end{minipage}%
     \end{titlepage}
     \clearpage
     \restoregeometry
