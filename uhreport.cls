@@ -3,14 +3,14 @@
 
 % Declares itself
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uhreport}[2022/12/04 A class to write stylised reports, including a coloured header.]
+\ProvidesClass{uhreport}[2022/12/04 A class to write stylised student reports at Hasselt University, including a coloured header.]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    Class definitions     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Needed for option behavior
 \RequirePackage[dvipsnames]{xcolor}
 
-% Options handling colours for the different schools and faculties
+% Options handling defaults for the different schools and faculties
 \DeclareOption{ses}{\definecolor{accent}{HTML}{E6007E}}
 \DeclareOption{ssw}{\definecolor{accent}{HTML}{00A13A}}
 \DeclareOption{mob}{\definecolor{accent}{RGB}{196, 214, 0}}
