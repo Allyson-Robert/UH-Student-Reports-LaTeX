@@ -6,6 +6,13 @@ Note that Physics students should go to the appropriate [paper](https://github.c
 Provides a LaTeX documentclass defining page layout, environments and several useful commands.
 The document currently assumes dutch as the used language.
 
+## Details
+This class implements a few conveniences and automates the layout to fit (some of) the UHasselt housetyle such as proper official faculty/school colours and logos.
+ 
+# Options
+* faculty (sets colour and logo): wet, glw, reval, bew, rec, iiw, ark, ses, mob, sw
+* language (passes language on to babel and selects logo): nl, en
+
 # Commands
 Additional commands are provides:
 
