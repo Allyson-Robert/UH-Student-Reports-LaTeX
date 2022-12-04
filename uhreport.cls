@@ -4,30 +4,78 @@
 % Declares itself
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{uhreport}[2022/12/04 A class to write stylised student reports at Hasselt University, including a coloured header.]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    Class definitions     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Needed for option behavior
+% Package needed for colour option behaviour
 \RequirePackage[dvipsnames]{xcolor}
+% Package needed for language option behaviour
+\RequirePackage[dutch,british]{babel}
 
-% Options handling defaults for the different schools and faculties
-\DeclareOption{ses}{\definecolor{accent}{HTML}{E6007E}}
-\DeclareOption{ssw}{\definecolor{accent}{HTML}{00A13A}}
-\DeclareOption{mob}{\definecolor{accent}{RGB}{196, 214, 0}}
+% Path to default language for the logo
+\newcommand{\logolanguage}{NL}
+% Change language directory bases on selected option
+\DeclareOption{nl}{
+    \renewcommand{\logolanguage}{NL}
+    \PassOptionsToPackage{main=dutch}{babel}
+}
+\DeclareOption{en}{
+    \renewcommand{\logolanguage}{EN}
+    \PassOptionsToPackage{main=british}{babel}
+}
 
-\DeclareOption{wet}{\definecolor{accent}{RGB}{0, 110, 184}}
-\DeclareOption{bew}{\definecolor{accent}{RGB}{0, 159, 233}}
-\DeclareOption{ark}{\definecolor{accent}{RGB}{232, 119, 34}}
-\DeclareOption{glw}{\definecolor{accent}{RGB}{171, 33, 131}}
-\DeclareOption{reval}{\definecolor{accent}{RGB}{0, 155, 119}}
-\DeclareOption{iiw}{\definecolor{accent}{RGB}{103, 193, 185}}
-\DeclareOption{rec}{\definecolor{accent}{RGB}{228, 0, 42}}
+% Path to default title logo
+\newcommand{\logofaculty}{WET}
+\newcommand{\titlelogo}{Logo/Faculty/\logolanguage/\logofaculty-blok.eps}
+% Options handling defaults for the different schools
+\DeclareOption{ses}{
+    \definecolor{accent}{HTML}{E6007E}
+    \renewcommand{\logofaculty}{SES}
+}
+\DeclareOption{sw}{
+    \definecolor{accent}{HTML}{00A13A}
+    \renewcommand{\logofaculty}{SW}
+}
+\DeclareOption{mob}{
+    \definecolor{accent}{RGB}{196, 214, 0}
+    \renewcommand{\logofaculty}{MOB}
+}
+% Options handling defaults for the different faculties
+\DeclareOption{wet}{
+    \definecolor{accent}{RGB}{0, 110, 184}
+    \renewcommand{\logofaculty}{WET}
+}
+\DeclareOption{bew}{
+    \definecolor{accent}{RGB}{0, 159, 233}
+    \renewcommand{\logofaculty}{BEW}
+}
+\DeclareOption{ark}{
+    \definecolor{accent}{RGB}{232, 119, 34}
+    \renewcommand{\logofaculty}{ARK}
+}
+\DeclareOption{glw}{
+    \definecolor{accent}{RGB}{171, 33, 131}
+    \renewcommand{\logofaculty}{GLW}
+}
+\DeclareOption{reval}{
+    \definecolor{accent}{RGB}{0, 155, 119}
+    \renewcommand{\logofaculty}{GLW}
+}
+\DeclareOption{iiw}{
+    \definecolor{accent}{RGB}{103, 193, 185}
+    \renewcommand{\logofaculty}{IIW}
+}
+\DeclareOption{rec}{
+    \definecolor{accent}{RGB}{228, 0, 42}
+    \renewcommand{\logofaculty}{REC}
+}
 
 % Disable twocolumn
 \DeclareOption{twocolumn}{\OptionNotUsed}
 
 % Set defaults
-\ExecuteOptions{wet}
+% \ExecuteOptions{wet, nl}
 
 % Pass remaining options to the article class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -41,7 +89,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Language package
-\RequirePackage[dutch]{babel}
 
 % Header
 \RequirePackage{fancyhdr}
@@ -124,8 +171,8 @@
         \end{tikzpicture}
         \begin{minipage}[b]{6cm}
             % Logo of the faculty in question
-            % \includegraphics[width=6cm]{UHasselt_FAC_Logo}
-            \includegraphics[width=6cm]{Logo/UHasselt_Logo_Tall.png}
+            % \includegraphics[width=6cm]{SES-blok.eps}
+            \includegraphics[width=6cm]{\titlelogo}
         \end{minipage}
         
         \vfill
@@ -158,7 +205,7 @@
         \vfill
         % \hfill
         % \begin{minipage}[t]{3.5cm}
-        %     \includegraphics[width = 3.5cm]{Logo/UHasselt_Logo_Tall.png}
+        %     \includegraphics[width = 3.5cm]{Logo/standaard.eps}
         % \end{minipage}%
     \end{titlepage}
     \clearpage
@@ -192,7 +239,7 @@
     }
     
     % Footer definition
-    \fancyfoot[L]{\includegraphics[width = 3.5cm]{Logo/UHasselt_Logo_Flat.jpg}}
+    \fancyfoot[L]{\includegraphics[width = 3.5cm]{Logo/liggend.eps}}
     \fancyfoot[R]{\thepage~/~\pageref{LastPage}}
     
     % Resize header\footer rule widths
