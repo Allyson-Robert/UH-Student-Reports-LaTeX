@@ -3,12 +3,42 @@
 
 % Declares itself
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uhreport}[2020/10/31 A report class following the 2020 UHasselt house style.]
+\ProvidesClass{uhreport}[2022/12/04 A class to write stylised reports, including a coloured header.]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Class definitions     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Needed for option behavior
+\RequirePackage[dvipsnames]{xcolor}
+
+% Options handling colours for the different schools and faculties
+\DeclareOption{ses}{\definecolor{accent}{HTML}{E6007E}}
+\DeclareOption{ssw}{\definecolor{accent}{HTML}{00A13A}}
+\DeclareOption{mob}{\definecolor{accent}{RGB}{196, 214, 0}}
+
+\DeclareOption{wet}{\definecolor{accent}{RGB}{0, 110, 184}}
+\DeclareOption{bew}{\definecolor{accent}{RGB}{0, 159, 233}}
+\DeclareOption{ark}{\definecolor{accent}{RGB}{232, 119, 34}}
+\DeclareOption{glw}{\definecolor{accent}{RGB}{171, 33, 131}}
+\DeclareOption{reval}{\definecolor{accent}{RGB}{0, 155, 119}}
+\DeclareOption{iiw}{\definecolor{accent}{RGB}{103, 193, 185}}
+\DeclareOption{rec}{\definecolor{accent}{RGB}{228, 0, 42}}
+
+% Disable twocolumn
+\DeclareOption{twocolumn}{\OptionNotUsed}
+
+% Set defaults
+\ExecuteOptions{wet}
+
+% Pass remaining options to the article class
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
+% The custom class builds on the article class
+\LoadClass[11pt, a4paper]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %         Packages         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\LoadClass[11pt, a4paper]{article}
 
 %% Language package
 \RequirePackage[dutch]{babel}
@@ -20,7 +50,6 @@
 \RequirePackage{graphicx}
 
 % Aesthetics, layout and font
-\RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{multicol}
 \RequirePackage{tocbibind}
 \RequirePackage[explicit]{titlesec}
@@ -40,7 +69,7 @@
 \RequirePackage{tikz}
 
 % Open Sans font is easier to read
-\RequirePackage[default,oldstyle,scale=0.95]{opensans}
+\RequirePackage[default,oldstyle]{opensans}
 
 % Layout
 \RequirePackage[margin=1in]{geometry}
@@ -88,14 +117,15 @@
         \begin{tikzpicture}[remember picture,overlay]
             \node[yshift=-7cm] at (current page.north west)
               {\begin{tikzpicture}[remember picture, overlay]
-                \fill[Red] (0,0) rectangle
+                \fill[accent] (0,0) rectangle
                   (\paperwidth,7cm);
                \end{tikzpicture}
             };
         \end{tikzpicture}
         \begin{minipage}[b]{6cm}
             % Logo of the faculty in question
-            \includegraphics[width=6cm]{UHasselt_FAC_Logo}
+            % \includegraphics[width=6cm]{UHasselt_FAC_Logo}
+            \includegraphics[width=6cm]{Logo/SES-blok.eps}
         \end{minipage}
         
         \vfill
@@ -103,7 +133,7 @@
                 \flushright
                 {\fontsize{35}{42}\selectfont\textbf{\textsf{\thecourse}}} \\
                 \LARGE \textbf{\thedegree} \\
-                {\color{Red}\textbf{\thetitle}} \\
+                {\color{accent}\textbf{\thetitle}} \\
         \end{minipage}
         
         \vfill
@@ -128,7 +158,7 @@
         \vfill
         \hfill
         \begin{minipage}[t]{3.5cm}
-            \includegraphics[width = 3.5cm]{UHasselt_Logo_Tall}
+            \includegraphics[width = 3.5cm]{Logo/UHasselt_Logo_Tall.png}
         \end{minipage}%
     \end{titlepage}
     \clearpage
@@ -154,7 +184,7 @@
         \begin{tikzpicture}[remember picture,overlay]
             \node[yshift=-1cm] at (current page.north west)
               {\begin{tikzpicture}[remember picture, overlay]
-                \fill[Red] (0,0) rectangle
+                \fill[accent] (0,0) rectangle
                   (\paperwidth,1cm);
                \end{tikzpicture}
             };
@@ -162,7 +192,7 @@
     }
     
     % Footer definition
-    \fancyfoot[L]{\includegraphics[width = 3.5cm]{UHasselt_Logo_Flat}}
+    \fancyfoot[L]{\includegraphics[width = 3.5cm]{Logo/UHasselt_Logo_Flat.jpg}}
     \fancyfoot[R]{\thepage~/~\pageref{LastPage}}
     
     % Resize header\footer rule widths
