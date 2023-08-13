@@ -10,8 +10,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Package needed for colour option behaviour
 \RequirePackage[dvipsnames]{xcolor}
-% Package needed for language option behaviour
-\RequirePackage[dutch,british]{babel}
 
 % Path to default language for the logo
 \newcommand{\logolanguage}{NL}
@@ -19,10 +17,13 @@
 \DeclareOption{nl}{
     \renewcommand{\logolanguage}{NL}
     \PassOptionsToPackage{main=dutch}{babel}
+    \PassOptionsToPackage{dutch}{cleveref}
+    
 }
 \DeclareOption{en}{
     \renewcommand{\logolanguage}{EN}
     \PassOptionsToPackage{main=british}{babel}
+    \PassOptionsToPackage{british}{cleveref}
 }
 
 % Path to default title logo
@@ -80,6 +81,9 @@
 % Pass remaining options to the article class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
+
+% Package needed for language option behaviour
+\RequirePackage{babel}
 
 % The custom class builds on the article class
 \LoadClass[11pt, a4paper]{article}
