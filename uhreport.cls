@@ -23,7 +23,7 @@
 \DeclareOption{en}{
     \renewcommand{\logolanguage}{EN}
     \PassOptionsToPackage{main=british}{babel}
-    \PassOptionsToPackage{british}{cleveref}
+    \PassOptionsToPackage{english}{cleveref}
 }
 
 % Path to default title logo
